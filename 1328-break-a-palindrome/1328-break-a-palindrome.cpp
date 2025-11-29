@@ -1,30 +1,32 @@
 class Solution {
 public:
     string breakPalindrome(string pal) {
-        int n = pal.length();
-        if(n == 1){
-            return "";
-        }
         string res = "";
+        int len = pal.length();
         bool flag = true;
-        for(int i=0;i<n;i++){
-            if(n%2 == 1 && i == n/2){
-                continue;
-            }
-            if(pal[i] > 'a'){
-                
+        if(len == 1){
+            return res;
+        }
+
+        for(int i=0;i<len;i++){
+            if(pal[i] != 'a'){
+                if(len%2 == 1 && i == len/2){
+                    continue;
+                }
                 flag = false;
-                if(i == 0){
-                    return 'a' + pal.substr(1,n-1);
+                res = pal.substr(0,i) + 'a';
+                if(i+1 < len){
+                    res += pal.substr(i+1,len);
                 }
-                else{
-                    return pal.substr(0,i) + 'a' + pal.substr(i+1,n);
-                }
+                break;
+                
             }
         }
-        if(flag == true ){
-            return pal.substr(0,n-1) + 'b';
+
+        if(flag == true){
+            return pal.substr(0,len-1)+'b';
         }
+
         return res;
     }
 };
