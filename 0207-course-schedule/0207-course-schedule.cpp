@@ -1,51 +1,34 @@
 class Solution {
 public:
-    bool func(int n,vector<vector<int>>& adj,vector<bool>& visited,int node,int parent){
-        if(visited[node] == true){
-            return false;
+    bool canFinish(int n, vector<vector<int>>& preReq) {
+        vector<vector<int>> adj(n);
+        vector<int> indegree(n,0);
+        for(auto e: preReq){
+            adj[e[1]].push_back(e[0]);
+            indegree[e[0]]++;
         }
-
-        visited[node] = true;
-
-        for(int x: adj[node]){
-            if(func(n,adj,visited,x,node) == false){
-                return false;
-            }
-        }
-        return true;
-    }
-    
-    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<vector<int>> adj(numCourses);
-        vector<int> indegree(numCourses,0);
-        vector<int> ans;
-        for(auto edge: prerequisites){
-            adj[edge[1]].push_back(edge[0]);
-            indegree[edge[0]]++;
-        }
-
         queue<int> q;
+        int ans=0;
+        for(int i=0;i<n;i++){
 
-        for(int i=0;i<numCourses;i++){
-            if(indegree[i]==0){
+            if (indegree[i] == 0){
                 q.push(i);
-            }
+                ans++;
+            } 
         }
 
         while(!q.empty()){
-            int t = q.front();
-            cout<<t<<endl;
-            ans.push_back(t);
+            int curr = q.front();
             q.pop();
-            for(int node: adj[t]){
+            for(int node: adj[curr]){
                 indegree[node]--;
                 if(indegree[node] == 0){
                     q.push(node);
+                    ans++;
                 }
             }
         }
-
-        if(ans.size() == numCourses){
+        if(ans == n){
             return true;
         }
 
