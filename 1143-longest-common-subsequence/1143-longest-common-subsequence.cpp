@@ -1,7 +1,7 @@
 class Solution {
     vector<vector<int>> memo;
 public:
-    int func(string text1, string text2,int n1,int n2){
+    int func(string& text1, string& text2,int n1,int n2){
         if(n1 ==0 || n2 ==0){
             return 0;
         }
