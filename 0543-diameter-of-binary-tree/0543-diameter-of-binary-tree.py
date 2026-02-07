@@ -5,24 +5,20 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def func(self, root: Optional[TreeNode]) -> int:
-        # res = 0
-        
-        if root.left == root.right == None:
+    def solve(self, root: Optional[TreeNode]) -> int:
+        if not root.left and not root.right:
             return 0
-        resLeft = resRight = 0
+        # ans = 0
+        left=right=0
         if root.left:
-            resLeft += 1 + self.func(root.left)
+            left = 1 + self.solve(root.left)
         if root.right:
-            resRight += 1 + self.func(root.right)
+            right = 1 + self.solve(root.right)
 
-        self.ans = max(self.ans, resLeft + resRight)
+        self.ans = max(self.ans, left+right)
 
-        return max(resLeft,resRight)
-
+        return max(left, right)
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        
-        self.ans  = 0
-        self.func(root)
-
+        self.ans = 0
+        self.solve(root)
         return self.ans
