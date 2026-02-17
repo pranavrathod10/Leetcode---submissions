@@ -10,30 +10,33 @@ class MyQueue:
         return
 
     def pop(self) -> int:
-        if len(self.useSt) != len(self.viewSt):
-            for i in range(len(self.viewSt)-1,-1,-1):
-                self.useSt.append(self.viewSt[i])
+        # if len(self.useSt) != len(self.viewSt):
+        #     for i in range(len(self.viewSt)-1,-1,-1):
+        #         self.useSt.append(self.viewSt[i])
 
-        res = self.useSt[-1]
-        self.useSt.pop()
+        # res = self.useSt[-1]
+        # self.useSt.pop()
 
-        self.viewSt.clear()
+        # self.viewSt.clear()
 
-        for i in range(len(self.useSt)-1,-1,-1):
-            self.viewSt.append(self.useSt[i])
-
-        return res
+        # for i in range(len(self.useSt)-1,-1,-1):
+        #     self.viewSt.append(self.useSt[i])
+        if not self.useSt:
+            while self.viewSt:
+                self.useSt.append(self.viewSt.pop())
+        
+        return self.useSt.pop()
 
     def peek(self) -> int:
-        if len(self.useSt) != len(self.viewSt):
-            for i in range(len(self.viewSt)-1,-1,-1):
-                self.useSt.append(self.viewSt[i])
+        if not self.useSt:
+            while self.viewSt:
+                self.useSt.append(self.viewSt.pop())
 
         return self.useSt[-1]
 
     def empty(self) -> bool:
         print(self.viewSt)
-        return len(self.viewSt) == 0
+        return len(self.viewSt) == 0 and len(self.useSt) == 0
 
 
 # Your MyQueue object will be instantiated and called as such:
