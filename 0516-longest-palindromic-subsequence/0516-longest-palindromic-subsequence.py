@@ -1,44 +1,23 @@
 class Solution:
-    def isPal(self, s: str) -> bool :
-        st ,e = 0, len(s)-1
-        while st < e:
-            if s[st] != s[e]:
-                return False
-            st+=1
-            e-=1
-        
-        return True
-    
-    def solve(self,s: str) -> int:
-        # print(s)
-        if self.isPal(s):
-            # print(s)
-            return len(s)
-        
-        if s in self.memo:
-            return self.memo[s]
-        
-        n = len(s)
-        st ,e = 0, len(s)-1
-        ans = 0
-        while st < e:
-            if s[st] != s[e]:
-                str1 = s[st:e]
-                str2 = s[st+1:e+1]
+    def solve(self, l: int, r: int, s: str) -> int:
+        if l == r:
+            return 1
+        if l > r:
+            return 0
 
-                ans = self.memo[s] = 2*(st) + max(self.solve(str1) , self.solve(str2))
-                break
+        key = (l<<32)|r
+        if key in self.memo:
+            return self.memo[key] 
 
-            st+=1
-            e-=1
+        if s[l] == s[r]:
+            self.memo[key] =  2+ self.solve(l+1,r-1,s)
+        else:
+            self.memo[key] = max(self.solve(l+1,r,s) , self.solve(l,r-1,s))
 
-        return ans
-
-
+        return self.memo[key]
 
     def longestPalindromeSubseq(self, s: str) -> int:
-        n = len(s)
-        ans = 0
         self.memo = {}
-        return self.solve(s)
-
+        l,r = 0,len(s)-1
+        # n = len(s)
+        return self.solve(l,r,s)
