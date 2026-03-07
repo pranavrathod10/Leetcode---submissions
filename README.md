@@ -12,9 +12,18 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Linked List
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0002-add-two-numbers](https://github.com/pranavrathod10/Leetcode---submissions/tree/main/0002-add-two-numbers/) | Medium |
 | [0707-design-linked-list](https://github.com/pranavrathod10/Leetcode---submissions/tree/main/0707-design-linked-list/) | Medium |
 ## Design
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0707-design-linked-list](https://github.com/pranavrathod10/Leetcode---submissions/tree/main/0707-design-linked-list/) | Medium |
+## Math
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0002-add-two-numbers](https://github.com/pranavrathod10/Leetcode---submissions/tree/main/0002-add-two-numbers/) | Medium |
+## Recursion
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0002-add-two-numbers](https://github.com/pranavrathod10/Leetcode---submissions/tree/main/0002-add-two-numbers/) | Medium |
 <!---LeetCode Topics End-->
