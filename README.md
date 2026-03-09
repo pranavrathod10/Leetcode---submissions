@@ -5,6 +5,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0442-find-all-duplicates-in-an-array](https://github.com/pranavrathod10/Leetcode---submissions/tree/master/0442-find-all-duplicates-in-an-array) |
+| [0453-minimum-moves-to-equal-array-elements](https://github.com/pranavrathod10/Leetcode---submissions/tree/main/0453-minimum-moves-to-equal-array-elements/) | Medium |
 ## Hash Table
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -24,6 +25,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0002-add-two-numbers](https://github.com/pranavrathod10/Leetcode---submissions/tree/main/0002-add-two-numbers/) | Medium |
+| [0453-minimum-moves-to-equal-array-elements](https://github.com/pranavrathod10/Leetcode---submissions/tree/main/0453-minimum-moves-to-equal-array-elements/) | Medium |
 ## Recursion
 | Problem Name | Difficulty |
 | ------- | ------- |
